@@ -14,6 +14,7 @@ TagManager:
   - Fruit
   - Melee
   - possessable
+  - possess_spore
   layers:
   - Default
   - TransparentFX
