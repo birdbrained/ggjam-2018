@@ -164,10 +164,23 @@ public class GameManager : MonoBehaviour
 		if (timerCanCountDown)
 		{
 			currTime -= Time.deltaTime;
+			if (timerText != null)
+			{
+				timerText.text = ((int)currTime).ToString();
+			}
 			if (currTime <= 0.0f)
 			{
 				timerCanCountDown = false;
+				possessedObj.gameObject.transform.localPosition = possessedObj.gameObject.GetComponent<PlayerController>().StartPosition;
+				possessedObj.GetComponent<PlayerController>().enabled = false;
+				possessedObj = null;
+				playerObj.GetComponent<PlayerController>().enabled = true;
+				GameObject.Find("Main Camera").GetComponent<CameraController>().ChangeTarget(playerObj.gameObject.name);
 			}
+		}
+		else
+		{
+			timerText.text = "";
 		}
     }
 

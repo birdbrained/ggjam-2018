@@ -44,7 +44,18 @@ public class PlayerController : Character
     private List<string> whatIsPointPickup = new List<string>();
 
     //[SerializeField]
-    private Vector2 startPosition;
+    private Vector3 startPosition;
+	public Vector2 StartPosition
+	{
+		get
+		{
+			return startPosition;
+		}
+		set
+		{
+			startPosition = value;
+		}
+	}
 
     public Rigidbody2D MyRb2d
     {
@@ -381,6 +392,13 @@ public class PlayerController : Character
             }
         }
     }
+
+	public IEnumerator ReturnToOriginalLocation(float time)
+	{
+		yield return new WaitForSeconds(time);
+		Debug.Log("returning to start location");
+		transform.position = startPosition;
+	}
 
     public override void Death()
     {
