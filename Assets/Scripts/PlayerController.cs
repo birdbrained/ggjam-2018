@@ -161,15 +161,17 @@ public class PlayerController : Character
 
     private void HandleMovement(float h)
     {
-        if(IsButterfly)
+        Debug.Log("is in HandleMovement");
+        if (IsButterfly)
         {
+            Debug.Log("is a butterfly trying to move");
             //butterfly flight
             float moveHorizontal = Input.GetAxis("Horizontal") * (maxFlightSpeed + 3);
             float moveVertical = Input.GetAxis("Vertical") * maxFlightSpeed;
 
             Vector2 movement = new Vector2(moveHorizontal, moveVertical);
             Rigidbody2D rig = GetComponent<Rigidbody2D>();
-            rig.velocity = movement;
+            rig.AddForce(movement);
         }
         else
         {

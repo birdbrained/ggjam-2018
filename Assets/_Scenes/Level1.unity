@@ -324,7 +324,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &136622006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,15 +340,15 @@ MonoBehaviour:
   JuicePrefab: {fileID: 0}
   meleeCollider: {fileID: 0}
   damageSources: []
-  speed: 0
-  health: 0
+  speed: 5
+  health: 10
   hasARangedAttack: 0
   hasAMeleeAttack: 0
   groundPoints: []
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
-  jumpForce: 0
+  jumpForce: 400
   immortalTime: 0
   airControl: 0
   groundRadius: 0
@@ -422,7 +422,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136622003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 064c5ecd6cd19cd45afde6b42be5dd0e, type: 2}
   m_CullingMode: 0
