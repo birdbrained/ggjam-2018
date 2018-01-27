@@ -78,6 +78,42 @@ public class GameManager : MonoBehaviour
         }
     }
 
+	[SerializeField]
+	private float timer;
+	[SerializeField]
+	private Text timerText;
+	private bool timerCanCountDown = false;
+
+	[SerializeField]
+	private GameObject playerObj;
+	public GameObject PlayerObj
+	{
+		get
+		{
+			return playerObj;
+		}
+		set
+		{
+			playerObj = value;
+		}
+	}
+	[SerializeField]
+	private GameObject possessedObj;
+	public GameObject PossessedObj
+	{
+		get
+		{
+			return possessedObj;
+		}
+		set
+		{
+			possessedObj = value;
+		}
+	}
+
+	[SerializeField]
+	private GameObject camera;
+
     // Use this for initialization
     void Awake ()
     {
@@ -93,6 +129,10 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = score.ToString();
         }
+		if (timerText != null)
+		{
+			timerText.text = "";
+		}
        /* if (instance == null)
         {
             DontDestroyOnLoad(gameObject);

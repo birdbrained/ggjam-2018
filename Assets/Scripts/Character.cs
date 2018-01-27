@@ -65,7 +65,7 @@ public abstract class Character : MonoBehaviour
             GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 0)));
             if (tag == "Player")
             {
-                tmp.GetComponent<JuiceBullets>().Initialize(Vector2.right, false);
+				tmp.GetComponent<SporeBullet>().Initialize(Vector2.right);
             }
             else
             {
@@ -77,7 +77,7 @@ public abstract class Character : MonoBehaviour
             GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 180)));
             if (tag == "Player")
             {
-                tmp.GetComponent<JuiceBullets>().Initialize(Vector2.left, false);
+				tmp.GetComponent<SporeBullet>().Initialize(Vector2.left);
             }
             else
             {
