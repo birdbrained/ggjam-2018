@@ -161,33 +161,7 @@ public class PlayerController : Character
 
     private void HandleMovement(float h)
     {
-        if (MyRb2d.velocity.y < 0)
-        {
-            MyAnimator.SetBool("fall", true);
-        }
-        if (OnGround || airControl)
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                h *= 2;
-                MyAnimator.SetBool("run", true);
-                MyAnimator.SetTrigger("startRun");
-            }
-            //if (Input.GetKeyUp(KeyCode.LeftShift))
-            else
-            {
-                MyAnimator.SetBool("run", false);
-                MyAnimator.ResetTrigger("startRun");
-            }
-            MyRb2d.velocity = new Vector2(h * speed, MyRb2d.velocity.y);
-        }
-        if (Jumping && MyRb2d.velocity.y == 0)
-        {
-            MyRb2d.AddForce(new Vector2(0, jumpForce));            
-        }
-        if(!IsButterfly)
-            MyAnimator.SetFloat("walkSpeed", Mathf.Abs(h));
-        else
+        if(IsButterfly)
         {
             //butterfly flight
             float moveHorizontal = Input.GetAxis("Horizontal") * (maxFlightSpeed + 3);
@@ -197,14 +171,45 @@ public class PlayerController : Character
             Rigidbody2D rig = GetComponent<Rigidbody2D>();
             rig.velocity = movement;
         }
-        /*
-        if (isGrounded && jumping)
+        else
         {
-            isGrounded = false;
-            rb2d.AddForce(new Vector2(0, jumpForce));
-            animator.SetTrigger("jump");
+            //normal movement and stuff
+            if (MyRb2d.velocity.y < 0)
+            {
+                MyAnimator.SetBool("fall", true);
+            }
+            if (OnGround || airControl)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    h *= 2;
+                    MyAnimator.SetBool("run", true);
+                    MyAnimator.SetTrigger("startRun");
+                }
+                //if (Input.GetKeyUp(KeyCode.LeftShift))
+                else
+                {
+                    MyAnimator.SetBool("run", false);
+                    MyAnimator.ResetTrigger("startRun");
+                }
+                MyRb2d.velocity = new Vector2(h * speed, MyRb2d.velocity.y);
+            }
+            if (Jumping && MyRb2d.velocity.y == 0)
+            {
+                MyRb2d.AddForce(new Vector2(0, jumpForce));            
+            }
+            MyAnimator.SetFloat("walkSpeed", Mathf.Abs(h));
+        
+            /*
+            if (isGrounded && jumping)
+            {
+                isGrounded = false;
+                rb2d.AddForce(new Vector2(0, jumpForce));
+                animator.SetTrigger("jump");
+            }
+            */
         }
-        */
+        
     }
 
     /*private void HandleAttacks()
