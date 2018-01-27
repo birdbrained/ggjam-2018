@@ -80,6 +80,9 @@ public class PlayerController : Character
     private bool IsButterfly;
     public float maxFlightSpeed = 5f;
 
+    [SerializeField]
+    private bool IsAnt;
+
     public override bool IsDead
     {
         get
@@ -235,23 +238,33 @@ public class PlayerController : Character
 
     private void HandleInput()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (!IsAnt)
         {
-            if (OnGround)
+            if (Input.GetAxis("Fire1") > 0.0f)  //z
             {
-                MyAnimator.SetTrigger("jump");
-				Jumping = true;
-                Jumped = true;
+                if (OnGround)
+                {
+                    MyAnimator.SetTrigger("jump");
+                    Jumping = true;
+                    Jumped = true;
+                }
+                //else if (!OnGround && !Jumping && Running /*&& MyRb2d.velocity.y < 0*/)
+                //jumping = true;
             }
-            //else if (!OnGround && !Jumping && Running /*&& MyRb2d.velocity.y < 0*/)
-            //jumping = true;
+            if (Input.GetAxis("Fire2") > 0.0f)  //x
+            {
+                MyAnimator.SetTrigger("attack");
+                //FireJuice(0);
+                //attacking = true;
+                //jumpAttacking = true;
+            }
         }
-        if (Input.GetKey(KeyCode.X))
+        else
         {
-            MyAnimator.SetTrigger("attack");
-            //FireJuice(0);
-            //attacking = true;
-            //jumpAttacking = true;
+            if (Input.GetAxis("Fire2") > 0.0f)  //x
+            {
+                //toggle pickup object
+            }
         }
     }
 
