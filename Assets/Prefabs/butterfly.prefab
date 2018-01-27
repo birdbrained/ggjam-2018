@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 61807419562171012}
   - component: {fileID: 95262995294623192}
   m_Layer: 0
-  m_Name: Butterfly
+  m_Name: butterfly
   m_TagString: possessable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
