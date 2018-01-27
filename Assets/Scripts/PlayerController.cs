@@ -93,11 +93,6 @@ public class PlayerController : Character
 	[SerializeField]
     private float maxFlightSpeed = 5f;
 	public GameObject possessedSpore;
-	[SerializeField]
-	private int maxAmmo;
-	private int currAmmo;
-	[SerializeField]
-	private Text ammoText;
 
     public override bool IsDead
     {
@@ -138,8 +133,6 @@ public class PlayerController : Character
         AirKickSpeeds[2] = speed * 1.5f;
         AirKickSpeeds[3] = speed * 1.75f;
         AirKickSpeeds[4] = speed * 2.0f;
-
-		currAmmo = maxAmmo;
     }
 
     void Update()
@@ -152,11 +145,6 @@ public class PlayerController : Character
             }
             HandleInput();
         }
-
-		if (ammoText != null)
-		{
-			ammoText.text = "x" + currAmmo.ToString();
-		}
     }
     
     void FixedUpdate()
@@ -278,10 +266,14 @@ public class PlayerController : Character
         }
         if (Input.GetKey(KeyCode.X))
         {
-            MyAnimator.SetTrigger("attack");
-            //FireJuice(0);
-            //attacking = true;
-            //jumpAttacking = true;
+			if (GameManager.Instance.CurrAmmo > 0 && !Attacking)
+			{
+	            MyAnimator.SetTrigger("attack");
+				GameManager.Instance.CurrAmmo--;
+	            //FireJuice(0);
+	            //attacking = true;
+	            //jumpAttacking = true;
+			}
         }
     }
 
@@ -316,7 +308,7 @@ public class PlayerController : Character
                 {
                     if (colliders[i].gameObject != gameObject)
                     {
-                        //animator.ResetTrigger("jump");
+						MyAnimator.ResetTrigger("jump");
                         //animator.SetBool("fall", false);
                         return true;
                     }

@@ -478,8 +478,6 @@ MonoBehaviour:
   IsButterfly: 1
   maxFlightSpeed: 5
   possessedSpore: {fileID: 1805731345}
-  maxAmmo: 0
-  ammoText: {fileID: 0}
 --- !u!212 &136622007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -628,7 +626,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ae40275b0f3a90347b089d3a69911149, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6387b8d80a36e32448146bbdb3151e78, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -679,6 +677,8 @@ MonoBehaviour:
   livesText: {fileID: 1950816565}
   timer: 10
   timerText: {fileID: 266644167}
+  ammoText: {fileID: 1158802604}
+  maxAmmo: 5
   playerObj: {fileID: 2026892319}
   possessedObj: {fileID: 0}
   camera: {fileID: 974420070}
@@ -1158,6 +1158,16 @@ Prefab:
       propertyPath: timer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012964827856, guid: 2d75e17e2c7be50468faba1db100cc1f,
+        type: 2}
+      propertyPath: maxAmmo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012964827856, guid: 2d75e17e2c7be50468faba1db100cc1f,
+        type: 2}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 1158802604}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d75e17e2c7be50468faba1db100cc1f, type: 2}
   m_IsPrefabParent: 0
@@ -1253,6 +1263,7 @@ RectTransform:
   m_Children:
   - {fileID: 266644164}
   - {fileID: 1105370929}
+  - {fileID: 1158802601}
   - {fileID: 1506871411}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1364,6 +1375,8 @@ GameObject:
   m_Component:
   - component: {fileID: 858542598}
   - component: {fileID: 858542597}
+  - component: {fileID: 858542600}
+  - component: {fileID: 858542599}
   m_Layer: 0
   m_Name: Fern
   m_TagString: Untagged
@@ -1428,6 +1441,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &858542599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 858542596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2dfa934fb39e040a83b34b6cd3381c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &858542600
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 858542596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.96, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &974420070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1848,7 @@ GameObject:
   - component: {fileID: 1105370931}
   - component: {fileID: 1105370930}
   m_Layer: 5
-  m_Name: ScoreUI
+  m_Name: AmmoUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1817,13 +1866,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 164887467}
-  - {fileID: 1158802601}
   m_Father: {fileID: 696695623}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -50}
+  m_AnchoredPosition: {x: -54.6, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105370930
@@ -1947,7 +1995,7 @@ GameObject:
   - component: {fileID: 1158802603}
   - component: {fileID: 1158802602}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: AmmoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1960,17 +2008,17 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1158802600}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1105370929}
-  m_RootOrder: 1
+  m_Father: {fileID: 696695623}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 761.4, y: -63.4}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158802602
 MonoBehaviour:
@@ -2035,7 +2083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score Text
+  m_Text: Ammo Text
 --- !u!222 &1158802605
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2337,7 +2385,7 @@ RectTransform:
   - {fileID: 798817469}
   - {fileID: 1950816562}
   m_Father: {fileID: 696695623}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2461,7 +2509,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1603202558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.37, y: -1.67, z: 0}
+  m_LocalPosition: {x: 18.37, y: -1.67, z: 0.1}
   m_LocalScale: {x: 0.39679044, y: 0.39679044, z: 0.39679044}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3017,8 +3065,6 @@ MonoBehaviour:
   IsButterfly: 0
   maxFlightSpeed: 5
   possessedSpore: {fileID: 2065145173}
-  maxAmmo: 0
-  ammoText: {fileID: 0}
 --- !u!50 &1902928657
 Rigidbody2D:
   serializedVersion: 4
@@ -3310,8 +3356,6 @@ MonoBehaviour:
   IsButterfly: 0
   maxFlightSpeed: 5
   possessedSpore: {fileID: 0}
-  maxAmmo: 0
-  ammoText: {fileID: 0}
 --- !u!50 &2026892321
 Rigidbody2D:
   serializedVersion: 4

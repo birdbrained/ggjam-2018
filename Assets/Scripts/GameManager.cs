@@ -86,6 +86,34 @@ public class GameManager : MonoBehaviour
 	private bool timerCanCountDown = false;
 
 	[SerializeField]
+	private Text ammoText;
+	[SerializeField]
+	private int maxAmmo;
+	public int MaxAmmo
+	{
+		get
+		{
+			return maxAmmo;
+		}
+		set
+		{
+			maxAmmo = value;
+		}
+	}
+	private int currAmmo;
+	public int CurrAmmo
+	{
+		get
+		{
+			return currAmmo;
+		}
+		set
+		{
+			currAmmo = value;
+		}
+	}
+
+	[SerializeField]
 	private GameObject playerObj;
 	public GameObject PlayerObj
 	{
@@ -144,6 +172,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }*/
 	}
+
+	void Start()
+	{
+		currAmmo = maxAmmo;
+	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -160,6 +193,10 @@ public class GameManager : MonoBehaviour
         {
             livesText.text = "x" + lives.ToString();
         }
+		if (ammoText != null)
+		{
+			ammoText.text = "x" + currAmmo.ToString();
+		}
 
 		if (timerCanCountDown)
 		{
