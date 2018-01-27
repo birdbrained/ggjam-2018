@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private float timer;
+	private float currTime;
 	[SerializeField]
 	private Text timerText;
 	private bool timerCanCountDown = false;
@@ -159,5 +160,20 @@ public class GameManager : MonoBehaviour
         {
             livesText.text = "x" + lives.ToString();
         }
+
+		if (timerCanCountDown)
+		{
+			currTime -= Time.deltaTime;
+			if (currTime <= 0.0f)
+			{
+				timerCanCountDown = false;
+			}
+		}
     }
+
+	public void StartPossessionTimer()
+	{
+		timerCanCountDown = true;
+		currTime = timer;
+	}
 }

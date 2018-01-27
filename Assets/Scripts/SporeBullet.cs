@@ -33,7 +33,13 @@ public class SporeBullet : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("possessable")) //(other.name == "possessable")
 		{
+			PlayerController otherPlayer = other.gameObject.GetComponent<PlayerController>();
 			GameManager.Instance.PossessedObj = other.gameObject;
+			if (otherPlayer.possessedSpore != null)
+			{
+				Debug.Log("enabling spores");
+				otherPlayer.possessedSpore.gameObject.SetActive(true);
+			}
 			other.gameObject.GetComponent<PlayerController>().enabled = true;
 			GameManager.Instance.PlayerObj.GetComponent<PlayerController>().enabled = false;
 			GameObject.Find("Main Camera").GetComponent<CameraController>().ChangeTarget(other.gameObject.name);

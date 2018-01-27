@@ -78,7 +78,9 @@ public class PlayerController : Character
 
     [SerializeField]
     private bool IsButterfly;
-    public float maxFlightSpeed = 5f;
+	[SerializeField]
+    private float maxFlightSpeed = 5f;
+	public GameObject possessedSpore;
 
     public override bool IsDead
     {
@@ -92,6 +94,10 @@ public class PlayerController : Character
         }
     }
 
+	void Awake()
+	{
+		
+	}
 
     // Use this for initialization
     public override void Start()
