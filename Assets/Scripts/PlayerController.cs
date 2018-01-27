@@ -101,6 +101,9 @@ public class PlayerController : Character
         sprR = GetComponent<SpriteRenderer>();
         MyRb2d = GetComponent<Rigidbody2D>();
 
+        if (IsButterfly)
+            this.GetComponent<Rigidbody2D>().gravityScale = 0.0f;   //turn gravity off for the object if it is a butterfly
+
         whatIsPointPickup.Add("HW");
 
         CanAirKick = false;
@@ -161,10 +164,10 @@ public class PlayerController : Character
 
     private void HandleMovement(float h)
     {
-        Debug.Log("is in HandleMovement");
+        //Debug.Log("is in HandleMovement");
         if (IsButterfly)
         {
-            Debug.Log("is a butterfly trying to move");
+            //Debug.Log("is a butterfly trying to move");
             //butterfly flight
             float moveHorizontal = Input.GetAxis("Horizontal") * (maxFlightSpeed + 3);
             float moveVertical = Input.GetAxis("Vertical") * maxFlightSpeed;
