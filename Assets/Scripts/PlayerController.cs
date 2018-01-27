@@ -76,6 +76,10 @@ public class PlayerController : Character
     [SerializeField]
     private bool IsAirKicking;
 
+    [SerializeField]
+    private bool IsButterfly;
+    public float maxFlightSpeed = 5f;
+
     public override bool IsDead
     {
         get
@@ -96,6 +100,9 @@ public class PlayerController : Character
         startPosition = transform.position;
         sprR = GetComponent<SpriteRenderer>();
         MyRb2d = GetComponent<Rigidbody2D>();
+
+        if (IsButterfly)
+            this.GetComponent<Rigidbody2D>().gravityScale = 0.0f;   //turn gravity off for the object if it is a butterfly
 
         whatIsPointPickup.Add("HW");
 
@@ -157,39 +164,57 @@ public class PlayerController : Character
 
     private void HandleMovement(float h)
     {
-        if (MyRb2d.velocity.y < 0)
+        //Debug.Log("is in HandleMovement");
+        if (IsButterfly)
         {
-            MyAnimator.SetBool("fall", true);
+            //Debug.Log("is a butterfly trying to move");
+            //butterfly flight
+            float moveHorizontal = Input.GetAxis("Horizontal") * (maxFlightSpeed + 3);
+            float moveVertical = Input.GetAxis("Vertical") * maxFlightSpeed;
+
+            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+            Rigidbody2D rig = GetComponent<Rigidbody2D>();
+            rig.AddForce(movement);
         }
-        if (OnGround || airControl)
+        else
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            //normal movement and stuff
+            if (MyRb2d.velocity.y < 0)
             {
-                h *= 2;
-                MyAnimator.SetBool("run", true);
-                MyAnimator.SetTrigger("startRun");
+                MyAnimator.SetBool("fall", true);
             }
-            //if (Input.GetKeyUp(KeyCode.LeftShift))
-            else
+            if (OnGround || airControl)
             {
-                MyAnimator.SetBool("run", false);
-                MyAnimator.ResetTrigger("startRun");
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    h *= 2;
+                    MyAnimator.SetBool("run", true);
+                    MyAnimator.SetTrigger("startRun");
+                }
+                //if (Input.GetKeyUp(KeyCode.LeftShift))
+                else
+                {
+                    MyAnimator.SetBool("run", false);
+                    MyAnimator.ResetTrigger("startRun");
+                }
+                MyRb2d.velocity = new Vector2(h * speed, MyRb2d.velocity.y);
             }
-            MyRb2d.velocity = new Vector2(h * speed, MyRb2d.velocity.y);
+            if (Jumping && MyRb2d.velocity.y == 0)
+            {
+                MyRb2d.AddForce(new Vector2(0, jumpForce));            
+            }
+            MyAnimator.SetFloat("walkSpeed", Mathf.Abs(h));
+        
+            /*
+            if (isGrounded && jumping)
+            {
+                isGrounded = false;
+                rb2d.AddForce(new Vector2(0, jumpForce));
+                animator.SetTrigger("jump");
+            }
+            */
         }
-        if (Jumping && MyRb2d.velocity.y == 0)
-        {
-            MyRb2d.AddForce(new Vector2(0, jumpForce));            
-        }
-        MyAnimator.SetFloat("walkSpeed", Mathf.Abs(h));
-        /*
-        if (isGrounded && jumping)
-        {
-            isGrounded = false;
-            rb2d.AddForce(new Vector2(0, jumpForce));
-            animator.SetTrigger("jump");
-        }
-        */
+        
     }
 
     /*private void HandleAttacks()
