@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: dcf6f3e2cb1d10c4b9b6e5f97e714a9a
+timeCreated: 1517088438
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CF Expedition
+  fontNames:
+  - CF Expedition
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

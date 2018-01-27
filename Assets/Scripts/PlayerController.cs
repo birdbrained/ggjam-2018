@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -92,6 +93,11 @@ public class PlayerController : Character
 	[SerializeField]
     private float maxFlightSpeed = 5f;
 	public GameObject possessedSpore;
+	[SerializeField]
+	private int maxAmmo;
+	private int currAmmo;
+	[SerializeField]
+	private Text ammoText;
 
     public override bool IsDead
     {
@@ -132,6 +138,8 @@ public class PlayerController : Character
         AirKickSpeeds[2] = speed * 1.5f;
         AirKickSpeeds[3] = speed * 1.75f;
         AirKickSpeeds[4] = speed * 2.0f;
+
+		currAmmo = maxAmmo;
     }
 
     void Update()
@@ -144,6 +152,11 @@ public class PlayerController : Character
             }
             HandleInput();
         }
+
+		if (ammoText != null)
+		{
+			ammoText.text = "x" + currAmmo.ToString();
+		}
     }
     
     void FixedUpdate()
