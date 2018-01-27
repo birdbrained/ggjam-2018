@@ -292,10 +292,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5055419, y: 0.35532337}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    border: {x: 1.78, y: 3.6999998, z: 0.96, w: 0.87}
+    pivot: {x: 0.3800505, y: 0.450323}
     oldSize: {x: 8, y: 9.5}
     newSize: {x: 8, y: 9.5}
     adaptiveTilingThreshold: 0.5
@@ -303,7 +303,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 9.5}
+  m_Size: {x: 3.7310302, y: 1.9132699}
   m_EdgeRadius: 0
 --- !u!50 &136622005
 Rigidbody2D:
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136622003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 945aa2dd44b0fcf46a5a1aca20605881, type: 3}
   m_Name: 
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 42822d66adf46314ca96254b969ae09e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 8, y: 9.5}
@@ -409,8 +409,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136622003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.68, y: 2.72, z: 0}
-  m_LocalScale: {x: 0.97019815, y: 1.0752468, z: 1}
+  m_LocalPosition: {x: 9.68, y: 2.697, z: 0}
+  m_LocalScale: {x: 0.97019815, y: 1.0796453, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
@@ -422,9 +422,9 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136622003}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 064c5ecd6cd19cd45afde6b42be5dd0e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6cb3c665df66a5c489af916509983fdc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
