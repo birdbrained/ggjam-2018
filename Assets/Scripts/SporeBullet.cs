@@ -31,11 +31,12 @@ public class SporeBullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "possessable")
+		if (other.name == "possessable")
 		{
 			GameManager.Instance.PossessedObj = other.gameObject;
 			other.gameObject.GetComponent<PlayerController>().enabled = true;
 			GameManager.Instance.PlayerObj.GetComponent<PlayerController>().enabled = false;
+			GameObject.Find("Main Camera").GetComponent<CameraController>().ChangeTarget(other.gameObject.name);
 			Destroy(gameObject);
 		}
 	}

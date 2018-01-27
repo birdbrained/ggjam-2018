@@ -79,6 +79,12 @@ public class GameManager : MonoBehaviour
     }
 
 	[SerializeField]
+	private float timer;
+	[SerializeField]
+	private Text timerText;
+	private bool timerCanCountDown = false;
+
+	[SerializeField]
 	private GameObject playerObj;
 	public GameObject PlayerObj
 	{
@@ -105,6 +111,9 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	[SerializeField]
+	private GameObject camera;
+
     // Use this for initialization
     void Awake ()
     {
@@ -120,6 +129,10 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = score.ToString();
         }
+		if (timerText != null)
+		{
+			timerText.text = "";
+		}
        /* if (instance == null)
         {
             DontDestroyOnLoad(gameObject);

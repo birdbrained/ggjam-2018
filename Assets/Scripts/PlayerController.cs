@@ -131,6 +131,7 @@ public class PlayerController : Character
             if (OnGround && MyRb2d.velocity.y < 0)
             {
                 Jumped = false;
+				Jumping = false;
                 CanAirKick = true;
             }
             HandleMovement(hor);
@@ -214,25 +215,11 @@ public class PlayerController : Character
             if (OnGround)
             {
                 MyAnimator.SetTrigger("jump");
+				Jumping = true;
                 Jumped = true;
             }
             //else if (!OnGround && !Jumping && Running /*&& MyRb2d.velocity.y < 0*/)
-            else if (!OnGround && !Jumping && !Jumped && Running && MyRb2d.velocity.y < 0)
-            {
-                if (CanAirKick)
-                {
-                    Debug.Log("AIR KICK!");
-                    MyAnimator.SetTrigger("airKick");
-                    AirKick();
-                    CanAirKick = false;
-                    IsAirKicking = true;
-                }
-            }
             //jumping = true;
-        }
-        if (IsAirKicking && Mathf.Abs(Input.GetAxis("Horizontal")) < 1)
-        {
-            ResetAirKick();
         }
         if (Input.GetKey(KeyCode.X))
         {
@@ -251,10 +238,6 @@ public class PlayerController : Character
             Vector3 scale = transform.localScale;
             scale.x *= -1;
             transform.localScale = scale;*/
-            if (IsAirKicking)
-            {
-                ResetAirKick();
-            }
             ChangeDirection();
         }
 
@@ -336,24 +319,6 @@ public class PlayerController : Character
         }*/
     }
 
-    private void AirKick()
-    {
-        MyRb2d.velocity = new Vector2(MyRb2d.velocity.x, 5);
-        if (AirKickStage < 4)
-        {
-            AirKickStage += 1;
-            speed = AirKickSpeeds[AirKickStage];
-        }
-    }
-
-    private void ResetAirKick()
-    {
-        IsAirKicking = false;
-        CanAirKick = false;
-        AirKickStage = 0;
-        speed = AirKickSpeeds[0];
-    }
-
     private IEnumerator IndicateImmortality()
     {
         while (immortal)
@@ -370,7 +335,6 @@ public class PlayerController : Character
         if (!immortal)
         {
             health -= 10;
-            ResetAirKick();
             if (!IsDead)
             {
                 MyAnimator.SetTrigger("damage");
@@ -390,7 +354,6 @@ public class PlayerController : Character
     public override void Death()
     {
         MyRb2d.velocity = Vector2.zero;
-        ResetAirKick();
         MyAnimator.SetTrigger("idle");
         health = startHealth;
         GameManager.Instance.Lives--;
