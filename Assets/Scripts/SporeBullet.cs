@@ -31,7 +31,7 @@ public class SporeBullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "possessable")
+		if (other.gameObject.CompareTag("possessable")) //(other.name == "possessable")
 		{
 			GameManager.Instance.PossessedObj = other.gameObject;
 			other.gameObject.GetComponent<PlayerController>().enabled = true;

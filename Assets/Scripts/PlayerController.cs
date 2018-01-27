@@ -76,6 +76,10 @@ public class PlayerController : Character
     [SerializeField]
     private bool IsAirKicking;
 
+    [SerializeField]
+    private bool IsButterfly;
+    public float maxFlightSpeed = 5f;
+
     public override bool IsDead
     {
         get
@@ -181,7 +185,18 @@ public class PlayerController : Character
         {
             MyRb2d.AddForce(new Vector2(0, jumpForce));            
         }
-        MyAnimator.SetFloat("walkSpeed", Mathf.Abs(h));
+        if(!IsButterfly)
+            MyAnimator.SetFloat("walkSpeed", Mathf.Abs(h));
+        else
+        {
+            //butterfly flight
+            float moveHorizontal = Input.GetAxis("Horizontal") * (maxFlightSpeed + 3);
+            float moveVertical = Input.GetAxis("Vertical") * maxFlightSpeed;
+
+            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+            Rigidbody2D rig = GetComponent<Rigidbody2D>();
+            rig.velocity = movement;
+        }
         /*
         if (isGrounded && jumping)
         {
