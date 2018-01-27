@@ -78,6 +78,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+	[SerializeField]
+	private GameObject playerObj;
+	public GameObject PlayerObj
+	{
+		get
+		{
+			return playerObj;
+		}
+		set
+		{
+			playerObj = value;
+		}
+	}
+	[SerializeField]
+	private GameObject possessedObj;
+	public GameObject PossessedObj
+	{
+		get
+		{
+			return possessedObj;
+		}
+		set
+		{
+			possessedObj = value;
+		}
+	}
+
     // Use this for initialization
     void Awake ()
     {
