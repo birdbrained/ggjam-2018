@@ -10,9 +10,10 @@ public class SporeBullet : MonoBehaviour
 	private Rigidbody2D rb;
 	[SerializeField]
 	private float secondsToLive;
+	public GameObject shroomPlatformPrefab;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
 	}
@@ -59,6 +60,19 @@ public class SporeBullet : MonoBehaviour
 			GameManager.Instance.StartPossessionTimer();
 			Destroy(gameObject);
 		}
+        if(other.gameObject.CompareTag("dirtWall"))
+        {
+            //Debug.Log("velocity of bullet is" + GetComponent<Rigidbody2D>().velocity.x);
+            if (GetComponent<Rigidbody2D>().velocity.x < 0)
+            {
+                GameObject shroomPlatform = (GameObject)Instantiate(shroomPlatformPrefab, this.transform.position, new Quaternion(0, 0.5f, 0, 0));
+            }
+            else
+            {
+                GameObject shroomPlatform = (GameObject)Instantiate(shroomPlatformPrefab, this.transform.position, new Quaternion(0, 0, 0, 0));
+            }
+            Destroy(gameObject);
+        }
 	}
 
 	void OnBecomeInvisible()
