@@ -36,4 +36,10 @@ public class PickUpBox : MonoBehaviour {
             }
         }
     }
+
+    private void OnCollisionExit2D(Collision2D coll)
+    {
+        holdObject = false;
+        this.transform.parent = null;
+    }
 }

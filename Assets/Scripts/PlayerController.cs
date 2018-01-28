@@ -95,6 +95,8 @@ public class PlayerController : Character
 
     [SerializeField]
     private bool IsAnt;
+    [SerializeField]
+    private bool IsClimbing;
 
 	public GameObject possessedSpore;
 
@@ -187,7 +189,7 @@ public class PlayerController : Character
     private void HandleMovement(float h)
     {
         //Debug.Log("is in HandleMovement");
-        if (IsButterfly)
+        if (IsButterfly || IsClimbing)
         {
             //Debug.Log("is a butterfly trying to move");
             //butterfly flight
@@ -465,6 +467,30 @@ public class PlayerController : Character
         if (other.gameObject.tag == "Fruit")
         {
             other.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(coll.gameObject.CompareTag("climbable"))
+        {
+            if (IsAnt)
+            {
+                this.GetComponent<Rigidbody2D>().gravityScale = 0.0f;   //turn gravity off for the object if it is an ant hitting a climbable wall
+                IsClimbing = true;
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("climbable"))
+        {
+            if (IsAnt)
+            {
+                this.GetComponent<Rigidbody2D>().gravityScale = 1.0f;   //turn gravity back on for the object if it is an ant leaving a climbable wall
+                IsClimbing = false;
+            }
         }
     }
 }
