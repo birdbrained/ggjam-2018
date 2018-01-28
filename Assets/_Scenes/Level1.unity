@@ -1027,7 +1027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2dfa934fb39e040a83b34b6cd3381c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 1275886440}
 --- !u!1001 &683912533
 Prefab:
   m_ObjectHideFlags: 0
@@ -1763,8 +1762,8 @@ MonoBehaviour:
   - {fileID: 689230678}
   - {fileID: 912899797}
   - {fileID: 1973512894}
-  parallaxScale: 0.5
-  parallaxReductionFactor: 10
+  parallaxScale: 0.3
+  parallaxReductionFactor: 15
   smoothing: 2
 --- !u!1001 &991886708
 Prefab:
