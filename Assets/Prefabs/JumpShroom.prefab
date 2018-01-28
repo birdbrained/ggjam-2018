@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBeforeDestroying: 5
+  useAnimator: 1
 --- !u!212 &212965756696302360
 SpriteRenderer:
   m_ObjectHideFlags: 1
