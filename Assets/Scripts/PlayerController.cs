@@ -308,7 +308,7 @@ public class PlayerController : Character
                 {
                     if (colliders[i].gameObject != gameObject)
                     {
-						MyAnimator.ResetTrigger("jump");
+						//MyAnimator.ResetTrigger("jump");
                         //animator.SetBool("fall", false);
                         return true;
                     }
