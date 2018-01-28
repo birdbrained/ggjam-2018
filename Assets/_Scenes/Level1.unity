@@ -2337,6 +2337,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114358769642504782, guid: 5effb62ac6130f846814b20f7f1033f7,
+        type: 2}
+      propertyPath: IsAnt
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5effb62ac6130f846814b20f7f1033f7, type: 2}
   m_IsPrefabParent: 0
@@ -3126,6 +3131,7 @@ MonoBehaviour:
   IsAirKicking: 0
   IsButterfly: 0
   maxFlightSpeed: 5
+  IsAnt: 0
   possessedSpore: {fileID: 0}
 --- !u!50 &2026892321
 Rigidbody2D:

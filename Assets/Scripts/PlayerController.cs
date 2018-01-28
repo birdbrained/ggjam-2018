@@ -92,6 +92,10 @@ public class PlayerController : Character
     private bool IsButterfly;
 	[SerializeField]
     private float maxFlightSpeed = 5f;
+
+    [SerializeField]
+    private bool IsAnt;
+
 	public GameObject possessedSpore;
 
     public override bool IsDead
@@ -253,28 +257,36 @@ public class PlayerController : Character
 
     private void HandleInput()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (!IsAnt)
         {
-            if (OnGround)
+            if (Input.GetAxis("Fire1") > 0.0f)
             {
-                MyAnimator.SetTrigger("jump");
-				Jumping = true;
-                Jumped = true;
+                if (OnGround)
+                {
+                    MyAnimator.SetTrigger("jump");
+                    Jumping = true;
+                    Jumped = true;
+                }
+                //else if (!OnGround && !Jumping && Running /*&& MyRb2d.velocity.y < 0*/)
+                //jumping = true;
             }
-            //else if (!OnGround && !Jumping && Running /*&& MyRb2d.velocity.y < 0*/)
-            //jumping = true;
-        }
-        if (Input.GetKey(KeyCode.X))
-        {
-			if (GameManager.Instance.CurrAmmo > 0 && !Attacking)
-			{
-	            MyAnimator.SetTrigger("attack");
-				GameManager.Instance.CurrAmmo--;
-	            //FireJuice(0);
-	            //attacking = true;
-	            //jumpAttacking = true;
-			}
-        }
+            if (Input.GetAxis("Fire2") > 0.0f)
+            {
+                if (GameManager.Instance.CurrAmmo > 0 && !Attacking)
+                {
+                    MyAnimator.SetTrigger("attack");
+                    GameManager.Instance.CurrAmmo--;
+                    //FireJuice(0);
+                    //attacking = true;
+                    //jumpAttacking = true;
+                }
+            }
+        }        
+    }
+
+    public bool IsAnAnt()
+    {
+        return IsAnt;
     }
 
     private void Flip(float h)
