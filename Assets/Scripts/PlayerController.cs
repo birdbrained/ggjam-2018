@@ -112,11 +112,6 @@ public class PlayerController : Character
         }
     }
 
-	void Awake()
-	{
-		
-	}
-
     // Use this for initialization
     public override void Start()
     {
