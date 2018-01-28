@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour 
 {
@@ -33,10 +34,10 @@ public class PlayButton : MonoBehaviour
 
 	private IEnumerator WaitASec()
 	{
-		yield return new WaitForSeconds(4.0f);
+		yield return new WaitForSeconds(1.0f);
 		ps.Stop();
 		yield return new WaitForSeconds(2.0f);
-		//switch level
+		SceneManager.LoadScene("Level1");
 	}
 
 	public void PlayGame()

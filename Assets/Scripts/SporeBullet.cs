@@ -8,11 +8,22 @@ public class SporeBullet : MonoBehaviour
 	private float speed;
 	private Vector2 direction;
 	private Rigidbody2D rb;
+	[SerializeField]
+	private float secondsToLive;
 
 	// Use this for initialization
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
+	}
+
+	void Update()
+	{
+		secondsToLive -= Time.deltaTime;
+		if (secondsToLive <= 0.0f)
+		{
+			Destroy(gameObject);
+		}
 	}
 	
 	// Update is called once per frame
