@@ -270,8 +270,8 @@ public class PlayerController : Character
 			{
 	            MyAnimator.SetTrigger("attack");
 				GameManager.Instance.CurrAmmo--;
-				Debug.Log("Attacking w/ spores");
-	            //FireJuice(0);
+				//Debug.Log("Attacking w/ spores");
+	            FireJuice(1);
 	            //attacking = true;
 	            //jumpAttacking = true;
 			}
@@ -338,8 +338,8 @@ public class PlayerController : Character
 
     public override void FireJuice(int value)
     {
-        if (!OnGround && value == 1 || OnGround && value == 0)
-        {
+        //if (!OnGround && value == 1 || OnGround && value == 0)
+        //{
             base.FireJuice(value);
             /*if (facingRight)
             {
@@ -351,7 +351,7 @@ public class PlayerController : Character
                 GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 180)));
                 tmp.GetComponent<JuiceBullets>().Initialize(Vector2.left, false);
             }*/
-        }
+        //}
         /*else if (!OnGround && value == 1)
         {
             if (facingRight)
