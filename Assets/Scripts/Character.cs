@@ -60,30 +60,33 @@ public abstract class Character : MonoBehaviour
 
     public virtual void FireJuice(int value)
     {
-        if (facingRight)
-        {
-            GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-            if (tag == "Player")
-            {
-				tmp.GetComponent<SporeBullet>().Initialize(Vector2.right);
-            }
-            else
-            {
-                tmp.GetComponent<JuiceEnemyBullets>().Initialize(Vector2.right, false);
-            }
-        }
-        else
-        {
-            GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 180)));
-            if (tag == "Player")
-            {
-				tmp.GetComponent<SporeBullet>().Initialize(Vector2.left);
-            }
-            else
-            {
-                tmp.GetComponent<JuiceEnemyBullets>().Initialize(Vector2.left, false);
-            }
-        }
+		if (JuicePrefab != null && JuicePos != null)
+		{
+			if (facingRight)
+			{
+				GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+				if (tag == "Player")
+				{
+					tmp.GetComponent<SporeBullet>().Initialize(Vector2.right);
+				} 
+				else
+				{
+					tmp.GetComponent<JuiceEnemyBullets>().Initialize(Vector2.right, false);
+				}
+			} 
+			else
+			{
+				GameObject tmp = (GameObject)Instantiate(JuicePrefab, JuicePos.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+				if (tag == "Player")
+				{
+					tmp.GetComponent<SporeBullet>().Initialize(Vector2.left);
+				} 
+				else
+				{
+					tmp.GetComponent<JuiceEnemyBullets>().Initialize(Vector2.left, false);
+				}
+			}
+		}
     }
 
     public void MeleeAttack()

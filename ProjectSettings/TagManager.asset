@@ -16,6 +16,7 @@ TagManager:
   - possessable
   - possess_spore
   - SporeWall
+  - climbable
   layers:
   - Default
   - TransparentFX
