@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4814741893928786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spores
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4042659281026150}
   - component: {fileID: 212501291132693192}
   - component: {fileID: 95331951003723976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 50645443081690258}
   - component: {fileID: 61807419562171012}
   - component: {fileID: 95262995294623192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: butterfly
   m_TagString: possessable
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4550019235375502}
   - component: {fileID: 212337252421947716}
   - component: {fileID: 95541188035954014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spore (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316127262674430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.79, y: 1.87, z: 0}
+  m_LocalPosition: {x: 45, y: 2.04, z: 0}
   m_LocalScale: {x: 0.5887773, y: 0.6551967, z: 0.60686296}
   m_Children:
   - {fileID: 4814741893928786}
@@ -265,6 +265,7 @@ MonoBehaviour:
   IsButterfly: 1
   maxFlightSpeed: 5
   IsAnt: 0
+  IsClimbing: 0
   possessedSpore: {fileID: 1160001992663320}
 --- !u!212 &212337252421947716
 SpriteRenderer:

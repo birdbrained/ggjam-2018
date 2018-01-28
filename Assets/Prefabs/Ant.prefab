@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4405543271739994}
   - component: {fileID: 212159489716461924}
   - component: {fileID: 95867134912788640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4428365690572348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 61975591256751784}
   - component: {fileID: 50971877202434340}
   - component: {fileID: 114358769642504782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ant
   m_TagString: possessable
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4285468999647778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291468176081460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1395853724263094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72, y: -1.94, z: 0}
+  m_LocalPosition: {x: 5.25, y: -1.99, z: 0}
   m_LocalScale: {x: 0.38142377, y: 0.38142377, z: 0.38142377}
   m_Children:
   - {fileID: 4405543271739994}
@@ -279,6 +279,8 @@ MonoBehaviour:
   IsAirKicking: 0
   IsButterfly: 0
   maxFlightSpeed: 5
+  IsAnt: 1
+  IsClimbing: 0
   possessedSpore: {fileID: 1030010097998348}
 --- !u!212 &212159489716461924
 SpriteRenderer:

@@ -274,12 +274,15 @@ public class PlayerController : Character
         {
 			if (GameManager.Instance.CurrAmmo > 0 && !Attacking)
 			{
-	            MyAnimator.SetTrigger("attack");
-				GameManager.Instance.CurrAmmo--;
-				//Debug.Log("Attacking w/ spores");
-	            FireJuice(1);
-	            //attacking = true;
-	            //jumpAttacking = true;
+				if (!IsAnt && !IsButterfly)
+				{
+		            MyAnimator.SetTrigger("attack");
+					GameManager.Instance.CurrAmmo--;
+					//Debug.Log("Attacking w/ spores");
+		            FireJuice(1);
+		            //attacking = true;
+		            //jumpAttacking = true;
+				}
 			}
         }
             /*if (Input.GetAxis("Fire2") > 0.0f)
@@ -481,14 +484,14 @@ public class PlayerController : Character
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.gameObject.CompareTag("climbable"))
-        {
-            if (IsAnt)
-            {
-                this.GetComponent<Rigidbody2D>().gravityScale = 0.0f;   //turn gravity off for the object if it is an ant hitting a climbable wall
-                IsClimbing = true;
-            }
-        }
+		if (coll.gameObject.CompareTag("climbable"))
+		{
+			if (IsAnt)
+			{
+				this.GetComponent<Rigidbody2D>().gravityScale = 0.0f;   //turn gravity off for the object if it is an ant hitting a climbable wall
+				IsClimbing = true;
+			}
+		}
     }
 
     private void OnCollisionExit2D(Collision2D coll)
