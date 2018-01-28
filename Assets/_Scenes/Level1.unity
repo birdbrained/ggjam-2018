@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 165077994}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: SporeWall
+  m_TagString: dirtWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -741,7 +741,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &554518726
 Prefab:
@@ -955,7 +955,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4206182118166878, guid: b9b11f00b8e54be4e838c239a3244172, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9b11f00b8e54be4e838c239a3244172, type: 2}
@@ -1365,7 +1365,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4773905211948752, guid: d6faec46d217e36409e2e6b84c1ca715, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6faec46d217e36409e2e6b84c1ca715, type: 2}
@@ -1701,7 +1701,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4970686537546548, guid: cf1922a0bb06734479a37a33363d2155, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1694109722310632, guid: cf1922a0bb06734479a37a33363d2155, type: 2}
       propertyPath: m_IsActive
@@ -2657,7 +2657,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4927255095961598, guid: 5effb62ac6130f846814b20f7f1033f7, type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114358769642504782, guid: 5effb62ac6130f846814b20f7f1033f7,
         type: 2}
@@ -3023,7 +3023,7 @@ GameObject:
   - component: {fileID: 1930064738}
   m_Layer: 0
   m_Name: Rock_Tile
-  m_TagString: dirtWall
+  m_TagString: climbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -65,7 +65,8 @@ public class SporeBullet : MonoBehaviour
             //Debug.Log("velocity of bullet is" + GetComponent<Rigidbody2D>().velocity.x);
             if (GetComponent<Rigidbody2D>().velocity.x < 0)
             {
-                GameObject shroomPlatform = (GameObject)Instantiate(shroomPlatformPrefab, this.transform.position, new Quaternion(0, 0.5f, 0, 0));
+                GameObject shroomPlatform = (GameObject)Instantiate(shroomPlatformPrefab, this.transform.position, new Quaternion(0, 0f, 0, 0));
+				shroomPlatform.transform.localScale = new Vector3(shroomPlatform.transform.localScale.x * -1, shroomPlatform.transform.localScale.y, shroomPlatform.transform.localScale.z);
             }
             else
             {
