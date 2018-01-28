@@ -111,7 +111,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	[SerializeField]
+    [SerializeField]
+    private Text sporeText;
+    private static int numSpores = 5;
+    public int NumSpores
+    {
+        get
+        {
+            return numSpores;
+        }
+        set
+        {
+            numSpores = value;
+        }
+    }
+
+    [SerializeField]
 	private GameObject camera;
 
     // Use this for initialization
@@ -133,16 +148,19 @@ public class GameManager : MonoBehaviour
 		{
 			timerText.text = "";
 		}
-       /* if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }*/
-	}
+
+        
+
+        /* if (instance == null)
+         {
+             DontDestroyOnLoad(gameObject);
+             instance = this;
+         }
+         else if (instance != this)
+         {
+             Destroy(gameObject);
+         }*/
+    }
 	
 	// Update is called once per frame
 	void Update ()

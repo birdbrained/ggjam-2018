@@ -40,6 +40,11 @@ public class PlayerController : Character
     private bool airControl;
     public float groundRadius;
 
+    public int maxSpores;
+    [SerializeField]
+    private int currentSpores;
+    //added max and current spore values - Reggie
+
     [SerializeField]
     private List<string> whatIsPointPickup = new List<string>();
 
