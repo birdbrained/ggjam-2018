@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text livesText;
     [SerializeField]
-    private static int lives = 3;
+    private static int lives = 999;
     public int Lives
     {
         get

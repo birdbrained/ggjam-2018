@@ -15,6 +15,7 @@ TagManager:
   - Melee
   - possessable
   - possess_spore
+  - SporeWall
   layers:
   - Default
   - TransparentFX
