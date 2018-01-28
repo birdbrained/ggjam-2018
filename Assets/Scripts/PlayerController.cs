@@ -282,7 +282,7 @@ public class PlayerController : Character
 	            //jumpAttacking = true;
 			}
         }
-            if (Input.GetAxis("Fire2") > 0.0f)
+            /*if (Input.GetAxis("Fire2") > 0.0f)
             {
                 if (GameManager.Instance.CurrAmmo > 0 && !Attacking)
                 {
@@ -292,7 +292,7 @@ public class PlayerController : Character
                     //attacking = true;
                     //jumpAttacking = true;
                 }
-            }
+            }*/
         }        
 
     public bool IsAnAnt()
