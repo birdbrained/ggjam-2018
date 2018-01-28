@@ -17,7 +17,10 @@ public class Fern : MonoBehaviour
 	{
 		ani = GetComponent<Animator>();
 		ps = GetComponentInChildren<ParticleSystem>();
-		ps.Stop();
+		if (ps != null)
+		{
+			ps.Stop();
+		}
 	}
 	
 	// Update is called once per frame
@@ -34,8 +37,11 @@ public class Fern : MonoBehaviour
 		{
 			GameManager.Instance.CurrAmmo = GameManager.Instance.MaxAmmo;
 			ani.SetTrigger("sway");
-			ps.Play();
-			StartCoroutine(ParticleManagement());
+			if (ps != null)
+			{
+				ps.Play();
+				StartCoroutine(ParticleManagement());
+			}
 		}
 	}
 

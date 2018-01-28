@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -219,6 +220,15 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			timerText.text = "";
+		}
+
+		if (Input.GetKeyUp(KeyCode.R))
+		{
+			SceneManager.LoadScene("Level1");
+		}
+		if (Input.GetKeyUp(KeyCode.Escape))
+		{
+			SceneManager.LoadScene("titlescreen");
 		}
     }
 
