@@ -270,7 +270,7 @@ public class PlayerController : Character
 			{
 	            MyAnimator.SetTrigger("attack");
 				GameManager.Instance.CurrAmmo--;
-				//Debug.Log("Attacking w/ spores");
+				Debug.Log("Attacking w/ spores");
 	            //FireJuice(0);
 	            //attacking = true;
 	            //jumpAttacking = true;
