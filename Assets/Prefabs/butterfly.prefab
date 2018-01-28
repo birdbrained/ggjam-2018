@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 61807419562171012}
   - component: {fileID: 95262995294623192}
   m_Layer: 0
-  m_Name: butterfly
+  m_Name: Butterfly
   m_TagString: possessable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   IsAirKicking: 0
   IsButterfly: 1
   maxFlightSpeed: 5
+  IsAnt: 0
   possessedSpore: {fileID: 1160001992663320}
 --- !u!212 &212337252421947716
 SpriteRenderer:
