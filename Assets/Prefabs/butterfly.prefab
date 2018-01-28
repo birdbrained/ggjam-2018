@@ -264,6 +264,7 @@ MonoBehaviour:
   IsAirKicking: 0
   IsButterfly: 1
   maxFlightSpeed: 5
+  IsAnt: 0
   possessedSpore: {fileID: 1160001992663320}
 --- !u!212 &212337252421947716
 SpriteRenderer:
