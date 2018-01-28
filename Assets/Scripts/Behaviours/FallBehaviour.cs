@@ -11,7 +11,8 @@ public class FallBehaviour : StateMachineBehaviour {
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-	    if (PlayerController.Instance.OnGround)
+	    //if (PlayerController.Instance.OnGround)
+		if (animator.gameObject.GetComponent<PlayerController>().OnGround)
         {
             animator.SetBool("fall", false);
             animator.ResetTrigger("jump");

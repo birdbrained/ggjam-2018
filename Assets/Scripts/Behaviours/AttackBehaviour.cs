@@ -7,6 +7,7 @@ public class AttackBehaviour : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<Character>().Attacking = true;
+		Debug.Log("Enter attack state");
         animator.SetFloat("walkSpeed", 0);
         /*if (animator.tag == "Player")
         {
