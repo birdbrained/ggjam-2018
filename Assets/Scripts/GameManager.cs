@@ -87,6 +87,9 @@ public class GameManager : MonoBehaviour
 	private bool timerCanCountDown = false;
 
 	[SerializeField]
+	private Text winText;
+
+	[SerializeField]
 	private Text ammoText;
 	[SerializeField]
 	private int maxAmmo;
@@ -177,6 +180,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		currAmmo = maxAmmo;
+		winText.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -236,5 +240,12 @@ public class GameManager : MonoBehaviour
 	{
 		timerCanCountDown = true;
 		currTime = timer;
+	}
+
+	public void EndGame() 
+	{
+		winText.text = "Victory!\nPress Esc to return to the title screen.";
+		//yield return new WaitForSeconds(5);
+		winText.gameObject.SetActive(true);
 	}
 }

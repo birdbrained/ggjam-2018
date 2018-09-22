@@ -6,6 +6,8 @@ public class Fern : MonoBehaviour
 {
 	private Animator ani;
 	private ParticleSystem ps;
+	[SerializeField]
+	private GameManager gameManager;
 
 	public bool Swaying 
 	{
@@ -42,6 +44,7 @@ public class Fern : MonoBehaviour
 				ps.Play();
 				StartCoroutine(ParticleManagement());
 			}
+            gameManager.EndGame();
 		}
 	}
 
