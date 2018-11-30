@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Forest Explorer</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Forest Explorer Web.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Forest Explorer</div>
+      </div>
+        <p><b>Controls:</b></p>
+        <p>Move left/right - A/D or left/right arrow keys</p>
+        <p>Jump - Z</p>
+        <p>Shoot spore - X</p>
+        <p>[As Ant] Climb - Hold up key/W directly next to wall</p>
+        <p>[As Ant] Pickup - Hold X directly next to a moveable object</p>
+        <p>[As Butterfly] Fly - Hold arrow keys/WASD in specified direction</p>
+    </div>
+  </body>
+</html>
